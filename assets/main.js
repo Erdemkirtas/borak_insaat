@@ -49,7 +49,7 @@
      Varsayılan: cihazın teması. Düğmeyle yapılan seçim kaydedilir;
      <head>'deki satır içi betik onu ilk boyamadan önce uygular. */
   var root = document.documentElement;
-  var temaBtn = document.getElementById('tema');
+  var temaBtnler = Array.prototype.slice.call(document.querySelectorAll('[data-tema]'));
   var sistemKoyu = window.matchMedia('(prefers-color-scheme: dark)');
 
   function aktifTema() {
@@ -58,15 +58,17 @@
     return sistemKoyu.matches ? 'dark' : 'light';
   }
   function temaEtiketi() {
-    if (!temaBtn) return;
-    temaBtn.setAttribute('aria-label', aktifTema() === 'dark' ? 'Açık temaya geç' : 'Koyu temaya geç');
+    var etiket = aktifTema() === 'dark' ? 'Açık temaya geç' : 'Koyu temaya geç';
+    temaBtnler.forEach(function (b) { b.setAttribute('aria-label', etiket); });
   }
-  if (temaBtn) {
-    temaBtn.addEventListener('click', function () {
-      var yeni = aktifTema() === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', yeni);
-      try { localStorage.setItem('borak-tema', yeni); } catch (e) { /* gizli mod vb. */ }
-      temaEtiketi();
+  if (temaBtnler.length) {
+    temaBtnler.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var yeni = aktifTema() === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', yeni);
+        try { localStorage.setItem('borak-tema', yeni); } catch (e) { /* gizli mod vb. */ }
+        temaEtiketi();
+      });
     });
     if (sistemKoyu.addEventListener) sistemKoyu.addEventListener('change', temaEtiketi);
     temaEtiketi();

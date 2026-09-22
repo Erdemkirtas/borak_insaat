@@ -10,6 +10,7 @@ borak-insaat/
 │   ├── main.js
 │   ├── borak-logo.svg      favicon
 │   └── img/                fotoğraflar (temsili)
+├── 404.html                bulunamayan sayfa
 ├── vercel.json             temiz URL + başlıklar
 ├── .vercelignore
 ├── artifact.html           Claude önizleme sürümü — hosting'e GEREKMEZ
@@ -64,6 +65,18 @@ koyun. Kodda değişiklik gerekmez. Sonra ilgili `<span class="tmsl">` notların
 ve footer'daki "Görseller temsilidir." ifadesini kaldırın (render kullanılıyorsa
 not kalabilir). Öneri: dış cephe ~1600px, hero ~2200px geniş, JPEG kalite 75.
 
+## Paylaşım kartı ve arama motoru
+
+- `assets/img/og.jpg` (1200×630): WhatsApp/Instagram/Facebook'ta link paylaşılınca
+  çıkan önizleme kartı. **Fotoğraf içermez**, yalnız marka öğelerinden üretilir;
+  site görselleri değişse de geçerli kalır.
+- `index.html` içindeki `og:image` yolu görecelidir. **Alan adı belli olunca**
+  tam adrese çevirin (ör. `https://borakinsaat.com/assets/img/og.jpg`);
+  bazı uygulamalar göreceli yolu çözemez.
+- Sayfada `application/ld+json` ile işletme bilgisi var (ad, telefon, Gazimağusa
+  konumu, koordinat, Instagram). Google'ın işletmeyi tanıması için. İçinde
+  yalnız doğrulanmış bilgiler var.
+
 ## Form
 
 Backend yok. Form bilgileri hazır bir WhatsApp mesajına çevirip
@@ -72,7 +85,7 @@ Backend yok. Form bilgileri hazır bir WhatsApp mesajına çevirip
 ## Güncelleme yaparken
 
 CSS/JS değiştirince `index.html` içindeki `?v=...` sürüm etiketini artırın
-(`style.css?v=20260922f`, `main.js?v=20260922f`). Yoksa ziyaretçiler eski
+(`style.css?v=20260922g`, `main.js?v=20260922g`). Yoksa ziyaretçiler eski
 dosyayı önbellekten görebilir.
 
 ## Vercel
