@@ -59,7 +59,7 @@
   --info-ink: #FFFFFF;
   --info-ink-2: rgba(255,255,255,.72);
   --info-line:transparent;
-  --map-line: transparent;
+  --map-filter:none;
   --img-filter:none;
   --tick-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238C6714' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
   --sel-img:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238C6714' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
@@ -82,7 +82,7 @@
     --num-bg:#26262A; --quote-ink:#EAD39A;
     --hdr-bg:rgba(14,14,16,.84); --bar-bg:rgba(14,14,16,.94);
     --info-bg:#18181B; --info-ink:#F2F1EE; --info-ink-2:#A3A6AD; --info-line:#3A3120;
-    --map-line:#26262A;
+    --map-filter:invert(92%) hue-rotate(180deg) brightness(.94) contrast(.92);
     --img-filter:brightness(.9) saturate(.95);
     --tick-img:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E0B45A' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
     --sel-img:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E0B45A' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
@@ -105,7 +105,7 @@
   --num-bg:#26262A; --quote-ink:#EAD39A;
   --hdr-bg:rgba(14,14,16,.84); --bar-bg:rgba(14,14,16,.94);
   --info-bg:#18181B; --info-ink:#F2F1EE; --info-ink-2:#A3A6AD; --info-line:#3A3120;
-  --map-line:#26262A;
+  --map-filter:invert(92%) hue-rotate(180deg) brightness(.94) contrast(.92);
   --img-filter:brightness(.9) saturate(.95);
   --tick-img:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E0B45A' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
   --sel-img:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E0B45A' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
@@ -453,68 +453,6 @@ body.nav-open .tema{ color:var(--ink); border-color:var(--line); }
 }
 
 /* =========================================================
-   HARİTA
-   ========================================================= */
-.mapwrap{ display:grid; gap:clamp(18px,2.4vw,28px); }
-.mapcard{
-  position:relative; background:var(--dark); border-radius:var(--r-xl); border:1px solid var(--map-line);
-  padding:clamp(16px,2.4vw,30px); overflow:hidden; box-shadow:var(--sh-m);
-}
-.kktc{ width:100%; height:auto; display:block; }
-.kktc__sea path{ fill:none; stroke:rgba(230,200,126,.16); stroke-width:1.4; }
-.kktc__land{ fill:#17171B; stroke:none; }
-.kktc__coast{ fill:none; stroke:var(--gold-mid); stroke-width:2.2; stroke-linejoin:round; }
-.kktc__city circle{ fill:rgba(255,255,255,.34); }
-.kktc__city text{
-  font-family:var(--f-mono); font-size:13px; fill:rgba(255,255,255,.44);
-  text-anchor:middle; letter-spacing:.5px;
-}
-.kktc__label{
-  font-family:var(--f-disp); font-weight:600; font-size:17px;
-  fill:var(--gold-br); letter-spacing:2.4px;
-}
-.mapcard__note{
-  position:absolute; right:clamp(16px,2.4vw,30px); bottom:clamp(14px,2vw,22px);
-  color:rgba(255,255,255,.62); margin:0;
-}
-
-.pin{ cursor:pointer; }
-.pin__halo{ fill:var(--gold-mid); opacity:0; transform-origin:center; }
-.pin__body{ fill:#7E5F14; transition:fill .3s var(--ease); }
-.pin__eye{ fill:#17171B; }
-.pin:hover .pin__body{ fill:var(--gold-mid); }
-.pin.is-on .pin__body{ fill:var(--gold-mid); }
-.pin.is-on .pin__halo{ opacity:.22; animation:halo 2.2s var(--ease) infinite; }
-@keyframes halo{ 0%{ transform:scale(.55); opacity:.4; } 70%,100%{ transform:scale(1.5); opacity:0; } }
-
-.maplist{ display:grid; gap:10px; align-content:start; }
-.maplist__k{ color:var(--ink-2); text-transform:uppercase; margin:0 0 2px; }
-.mapitem{
-  display:grid; grid-template-columns:auto 1fr; gap:2px 14px; align-items:center;
-  text-align:left; cursor:pointer; width:100%;
-  background:var(--card); border:1.5px solid var(--line); border-radius:var(--r-m);
-  padding:16px 20px; transition:border-color .3s var(--ease), background .3s var(--ease), transform .3s var(--ease);
-}
-.mapitem:hover{ transform:translateY(-2px); border-color:var(--gold-mid); }
-.mapitem.is-on{ border-color:var(--gold-mid); background:var(--gold-sft); }
-.mapitem__no{ grid-row:span 2; color:var(--gold); font-size:.92rem; }
-.mapitem__t{ font-family:var(--f-disp); font-weight:700; font-size:1.12rem; color:var(--ink); }
-.mapitem__s{ font-size:.84rem; color:var(--ink-2); }
-
-.mapinfo{
-  background:var(--info-bg); color:var(--info-ink); border:1px solid var(--info-line); border-radius:var(--r-m);
-  padding:22px 24px; margin-top:6px;
-}
-.mapinfo__t{ font-family:var(--f-disp); font-weight:700; font-size:1.3rem; margin:0 0 6px; }
-.mapinfo__d{ margin:0 0 16px; color:var(--info-ink-2); font-size:.93rem; }
-.mapinfo__a{
-  display:inline-flex; align-items:center; gap:9px; text-decoration:none;
-  font-family:var(--f-disp); font-weight:600; font-size:.9rem; color:var(--gold-br);
-}
-.mapinfo__a svg{ width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; transition:transform .3s var(--ease); }
-.mapinfo__a:hover svg{ transform:translateX(4px); }
-
-/* =========================================================
    PROJELER
    ========================================================= */
 .showcase{
@@ -852,7 +790,6 @@ body.nav-open .tema{ color:var(--ink); border-color:var(--line); }
   .cta__in{ grid-template-columns:1fr 1.05fr; }
   .ftr__in{ grid-template-columns:1.7fr 1fr 1fr 1.1fr; gap:48px; }
 
-  .mapwrap{ grid-template-columns:1.55fr 1fr; align-items:start; }
   .proj{ grid-template-columns:1.12fr 1fr; }
   .proj__viz{ aspect-ratio:4/3.1; }
   .proj--flip .proj__viz{ order:2; }
@@ -871,15 +808,7 @@ body.nav-open .tema{ color:var(--ink); border-color:var(--line); }
   }
 }
 
-/* ---------- harita: küçük ekranda okunabilirlik ----------
-   viewBox main.js tarafından mobilde Gazimağusa bölgesine kırpılır;
-   yazılar o ölçekte okunur kalsın diye büyütülür. */
 @media (max-width:760px){
-  .kktc__city text{ font-size:17px; }
-  .kktc__label{ font-size:22px; }
-  .kktc__coast{ stroke-width:3.4; }
-  .kktc__sea path{ stroke-width:2.2; }
-  .mapcard{ padding:18px 16px 30px; }
 
   /* Dikey ekranda metin tüm genişliği kaplıyor: fotoğrafı eşit karart. */
   .hero__scene img{ object-position:64% 50%; }
@@ -905,4 +834,30 @@ body.nav-open .tema{ color:var(--ink); border-color:var(--line); }
   .nav__tema svg{ width:19px; height:19px; fill:none; stroke:var(--gold); stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
   .nav__tema span{ display:var(--ay); }
   .nav__tema span.tema__gunes{ display:var(--gunes); }
+}
+
+/* =========================================================
+   KONUM — Google Haritalar
+   ========================================================= */
+.konum{ background:var(--paper-2); padding-top:var(--sec-y); }
+.konum__in{
+  display:flex; flex-wrap:wrap; gap:24px clamp(30px,5vw,80px);
+  align-items:flex-end; justify-content:space-between;
+  padding-bottom:clamp(30px,4vw,54px);
+}
+.konum__yan{ display:flex; flex-wrap:wrap; align-items:center; gap:18px 28px; }
+.konum__adres{ margin:0; color:var(--ink-2); font-size:.96rem; line-height:1.7; }
+.gmap{ position:relative; height:clamp(320px,42vw,480px); background:var(--dark); overflow:hidden; }
+.gmap__fb{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:16px; text-align:center; padding:24px;
+}
+.gmap__fb svg{ width:34px; height:34px; fill:none; stroke:var(--gold-mid); stroke-width:1.5; }
+.gmap__fb p{
+  margin:0; color:#fff; font-family:var(--f-disp); font-weight:600;
+  font-size:.82rem; letter-spacing:.24em; text-transform:uppercase;
+}
+.gmap__frame{
+  position:absolute; inset:0; width:100%; height:100%; border:0;
+  filter:var(--map-filter);
 }

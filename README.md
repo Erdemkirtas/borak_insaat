@@ -3,7 +3,7 @@
 Tek sayfalık statik site. Derleme adımı, bağımlılık, `node_modules` yok.
 
 ```
-borak-insaat/
+burak-insaat/
 ├── index.html
 ├── assets/
 │   ├── style.css
@@ -28,9 +28,9 @@ Referans: akolglobal.com. Düzen ve form dili ondan, renk Burak'ın kendi logosu
   içindeki `:root` değişkenlerinde.
 - **Tipografi**: Outfit (başlıklar, 700), Plus Jakarta Sans (metin), IBM Plex Mono (indeksler).
 - **Form dili**: 14/20/28/36px radius, 999px pill butonlar, cam sticky header.
-- **İnteraktif harita**: elle çizilmiş KKTC haritası (SVG). Harici servis, API
-  anahtarı yok. Mobilde `main.js` içindeki `fitMap()` haritayı Gazimağusa
-  bölgesine kırpar ki yazılar okunur kalsın.
+- **Konum**: sayfanın en altında gerçek Google Haritalar gömülü harita.
+  API anahtarı gerekmez. Koyu temada `--map-filter` ile koyulaştırılır.
+  Harita yüklenemezse arkasındaki kart ("Google Haritalar'da Aç") görünür.
 
 ## Logo
 
@@ -93,6 +93,16 @@ not kalabilir). Öneri: dış cephe ~1600px, hero ~2200px geniş, JPEG kalite 75
   konumu, koordinat, Instagram). Google'ın işletmeyi tanıması için. İçinde
   yalnız doğrulanmış bilgiler var.
 
+## Ofis konumu — TEYİT EDİLMELİ
+
+Haritadaki nokta `35.139013, 33.917244`, firmanın **Instagram biyografisindeki
+harita bağlantısından** alındı. Ofisin tam adresi bilinmiyor.
+
+Firmadan açık adresi alınca `index.html` içindeki iki yeri güncelleyin:
+`.gmap__frame` iframe `src`'sindeki koordinat ve `Yol Tarifi Al` bağlantısı
+(ayrıca JSON-LD'deki `geo`). Adres netleşince `address` alanına `streetAddress`
+de eklenebilir.
+
 ## Form
 
 Backend yok. Form bilgileri hazır bir WhatsApp mesajına çevirip
@@ -131,5 +141,5 @@ aile dostu, merkezî konum, otopark), telefon `0533 851 38 99`, konum
 - [ ] Proje render ve şantiye fotoğrafları (temsili görsellerin yerine)
 - [ ] Gerçek kat planları ve metrekareler
 - [ ] Kuruluş yılı, teslim edilen konut sayısı
-- [ ] Ofis açık adresi, sabit telefon, e-posta
+- [ ] **Ofis açık adresi** (haritadaki nokta şu an Instagram'daki konumdan alındı), sabit telefon, e-posta
 - [ ] Alan adı (Vercel'e bağlanacak)

@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=20260924a">
+<link rel="stylesheet" href="assets/style.css?v=20260924b">
 <!-- Kayıtlı tema seçimini ilk boyamadan önce uygula (beyaz parlama olmasın) -->
 <script>try{var t=localStorage.getItem('burak-tema');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <script type="application/ld+json">
@@ -53,7 +53,6 @@
 
     <nav class="nav" id="nav" aria-label="Ana menü">
       <a href="#kurumsal">Kurumsal</a>
-      <a href="#bolgeler">Proje Bölgeleri</a>
       <a href="#projeler">Projeler</a>
       <a href="#daireler">Daire Tipleri</a>
       <a href="#neden">Neden Burak</a>
@@ -119,93 +118,6 @@
       <div class="stat"><b>2+1<em>·</em>3+1</b><span>Daire Seçenekleri</span><i>02</i></div>
       <div class="stat"><b>Penthouse</b><span>Özel Üniteler</span><i>03</i></div>
       <div class="stat"><b>Gazimağusa</b><span>Merkezî Konum</span><i>04</i></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== PROJE BÖLGELERİ (HARİTA) ===================== -->
-<section class="sec sec--tint" id="bolgeler">
-  <div class="wrap">
-    <header class="sechead">
-      <div>
-        <p class="eyebrow">Proje Bölgelerimiz</p>
-        <h2 class="h2">Kuzey Kıbrıs'ın değerlenen<br>bölgelerinde inşa ediyoruz</h2>
-      </div>
-      <p class="sechead__desc">Projelerimiz Gazimağusa ve çevresinde yükseliyor. Haritadan
-        bir projeyi seçin, konumu ve detaylarını görün.</p>
-    </header>
-
-    <div class="mapwrap">
-      <div class="mapcard">
-        <svg class="kktc" viewBox="0 0 1000 440" role="img" aria-label="Kuzey Kıbrıs haritası üzerinde Burak İnşaat proje konumları">
-          <!-- deniz dokusu -->
-          <g class="kktc__sea">
-            <path d="M0 300q120 18 250 10T520 292t250 -70T1000 150" />
-            <path d="M0 340q140 20 280 12t250 -22t230 -76T1000 196" />
-            <path d="M0 262q100 14 210 8t230 -24" />
-          </g>
-          <!-- kara -->
-          <path class="kktc__land" d="M60 268C70 222 130 200 200 202c68 2 118-16 172-20 56-4 114-10 168-6 40 3 70-8 102-22L930 40l18 34L662 196c-32 14-66 26-106 34l-4 92c-82 12-172 16-260 8C204 322 118 306 64 292Z"/>
-          <path class="kktc__coast" d="M60 268C70 222 130 200 200 202c68 2 118-16 172-20 56-4 114-10 168-6 40 3 70-8 102-22L930 40l18 34L662 196c-32 14-66 26-106 34"/>
-
-          <!-- referans şehirler -->
-          <g class="kktc__city">
-            <circle cx="200" cy="258" r="4"/><text x="200" y="278">Güzelyurt</text>
-            <circle cx="330" cy="212" r="4"/><text x="330" y="202">Girne</text>
-            <circle cx="358" cy="272" r="4"/><text x="358" y="292">Lefkoşa</text>
-            <circle cx="452" cy="200" r="4"/><text x="452" y="190">Esentepe</text>
-            <circle cx="575" cy="262" r="4"/><text x="588" y="256">İskele</text>
-            <circle cx="762" cy="124" r="4"/><text x="762" y="114">Yenierenköy</text>
-          </g>
-
-          <!-- proje iğneleri -->
-          <g class="pin" data-pin="burak7" tabindex="0" role="button" aria-label="Burak 7 — Gazimağusa" transform="translate(548,296)">
-            <circle class="pin__halo" r="26"/>
-            <path class="pin__body" d="M0 6c0 0 15-13 15-24A15 15 0 1 0-15-18C-15-7 0 6 0 6Z" transform="translate(0,-6)"/>
-            <circle class="pin__eye" cy="-24" r="5.4"/>
-          </g>
-          <g class="pin" data-pin="burak5" tabindex="0" role="button" aria-label="Burak 5 — Gazimağusa" transform="translate(586,286)">
-            <circle class="pin__halo" r="26"/>
-            <path class="pin__body" d="M0 6c0 0 15-13 15-24A15 15 0 1 0-15-18C-15-7 0 6 0 6Z" transform="translate(0,-6)"/>
-            <circle class="pin__eye" cy="-24" r="5.4"/>
-          </g>
-          <g class="pin" data-pin="burak6" tabindex="0" role="button" aria-label="Burak 6 — Gazimağusa, Çanakkale" transform="translate(512,272)">
-            <circle class="pin__halo" r="26"/>
-            <path class="pin__body" d="M0 6c0 0 15-13 15-24A15 15 0 1 0-15-18C-15-7 0 6 0 6Z" transform="translate(0,-6)"/>
-            <circle class="pin__eye" cy="-24" r="5.4"/>
-          </g>
-
-          <text class="kktc__label" x="612" y="326">GAZİMAĞUSA</text>
-        </svg>
-
-        <p class="mapcard__note mono">35.1390&deg; N &nbsp; 33.9172&deg; E &nbsp;/&nbsp; KKTC</p>
-      </div>
-
-      <div class="maplist">
-        <p class="maplist__k mono">Projeler</p>
-        <button class="mapitem is-on" data-go="burak7">
-          <span class="mapitem__no mono">07</span>
-          <span class="mapitem__t">Burak 7</span>
-          <span class="mapitem__s">Gazimağusa &middot; Yeni Proje</span>
-        </button>
-        <button class="mapitem" data-go="burak6">
-          <span class="mapitem__no mono">06</span>
-          <span class="mapitem__t">Burak 6</span>
-          <span class="mapitem__s">Çanakkale &middot; Göl Manzaralı</span>
-        </button>
-        <button class="mapitem" data-go="burak5">
-          <span class="mapitem__no mono">05</span>
-          <span class="mapitem__t">Burak 5</span>
-          <span class="mapitem__s">Gazimağusa &middot; Satışta</span>
-        </button>
-
-        <div class="mapinfo" id="mapinfo" aria-live="polite">
-          <p class="mapinfo__t">Burak 7</p>
-          <p class="mapinfo__d">Estetik mimarisi ve fonksiyonel planlarıyla modern yaşamın yeni adresi.</p>
-          <a class="mapinfo__a" href="#burak7">Projeye git
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></a>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -582,6 +494,33 @@
 
 </main>
 
+<!-- ===================== KONUM ===================== -->
+<section class="konum" id="konum" aria-label="Ofis konumu">
+  <div class="wrap konum__in">
+    <div>
+      <p class="eyebrow">Konum</p>
+      <h2 class="h2">Ofisimiz<br>Gazimağusa'da</h2>
+    </div>
+    <div class="konum__yan">
+      <p class="konum__adres">Gazimağusa &middot; Kuzey Kıbrıs<br>
+        <span class="mono">35.139013, 33.917244</span></p>
+      <a class="btn btn--dark" href="https://maps.app.goo.gl/WNb8oyFhw3ZvD8c77" target="_blank" rel="noopener">Yol Tarifi Al
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></a>
+    </div>
+  </div>
+  <div class="gmap">
+    <div class="gmap__fb">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-6.9 8-13a8 8 0 0 0-16 0c0 6.1 8 13 8 13z"/><circle cx="12" cy="9" r="2.8"/></svg>
+      <p>Gazimağusa / Kuzey Kıbrıs</p>
+      <a class="btn btn--gold" href="https://maps.app.goo.gl/WNb8oyFhw3ZvD8c77" target="_blank" rel="noopener">Google Haritalar'da Aç</a>
+    </div>
+    <!-- ARTIFACT:STRIP-START -->
+    <iframe class="gmap__frame" title="Burak İnşaat Group ofis konumu — Gazimağusa"
+      src="https://www.google.com/maps?q=35.139013,33.917244&amp;z=16&amp;hl=tr&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- ARTIFACT:STRIP-END -->
+  </div>
+</section>
+
 <!-- ===================== FOOTER ===================== -->
 <footer class="ftr">
   <div class="wrap">
@@ -601,7 +540,7 @@
       <nav class="ftr__col" aria-label="Projeler">
         <h4>Projeler</h4>
         <a href="#burak7">Burak 7</a><a href="#burak6">Burak 6</a>
-        <a href="#burak5">Burak 5</a><a href="#bolgeler">Proje Bölgeleri</a>
+        <a href="#burak5">Burak 5</a>
       </nav>
       <nav class="ftr__col" aria-label="İletişim">
         <h4>İletişim</h4>
@@ -638,6 +577,6 @@
   <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.7A13 13 0 1 0 16 3zm0 23.6c-2 0-3.9-.5-5.6-1.5l-.4-.2-4 1 1.1-3.9-.3-.4A10.6 10.6 0 1 1 16 26.6zm6-7.9c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.4-1.2 1.2-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.9 5.1 2.2.9 3 1 4.1.8.7-.1 1.9-.8 2.2-1.6.3-.8.3-1.4.2-1.6-.1-.2-.3-.3-.6-.4z"/></svg>
 </a>
 
-<script src="assets/main.js?v=20260924a"></script>
+<script src="assets/main.js?v=20260924b"></script>
 </body>
 </html>

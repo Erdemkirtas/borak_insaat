@@ -95,67 +95,6 @@
     navTargets.forEach(function (t) { spy.observe(t.el); });
   }
 
-  /* ---------- harita: proje seçimi ---------- */
-  var PROJE = {
-    burak7: {
-      t: 'Burak 7',
-      d: 'Estetik mimarisi ve fonksiyonel planlarıyla modern yaşamın yeni adresi. Gazimağusa merkezde.'
-    },
-    burak6: {
-      t: 'Burak 6',
-      d: 'Çanakkale bölgesinde, göl manzarasına açılan geniş balkonlu daireler.'
-    },
-    burak5: {
-      t: 'Burak 5',
-      d: '2+1, 3+1 ve penthouse seçenekleriyle satışları devam eden projemiz.'
-    }
-  };
-
-  var items = Array.prototype.slice.call(document.querySelectorAll('.mapitem'));
-  var pins = Array.prototype.slice.call(document.querySelectorAll('.pin'));
-  var info = document.getElementById('mapinfo');
-
-  /* Dar ekranda harita tüm adaya sığınca yazılar 4px'e düşüyor.
-     Bu yüzden mobilde Gazimağusa bölgesine kırpıyoruz. */
-  var kktc = document.querySelector('.kktc');
-  var kktcMod = '';
-  function fitMap() {
-    if (!kktc) return;
-    var mod = window.innerWidth < 760 ? 'dar' : 'genis';
-    if (mod === kktcMod) return;
-    kktcMod = mod;
-    kktc.setAttribute('viewBox', mod === 'dar' ? '406 126 440 272' : '0 0 1000 440');
-  }
-  fitMap();
-  window.addEventListener('resize', fitMap, { passive: true });
-
-  function selectProject(key) {
-    if (!PROJE[key]) return;
-
-    items.forEach(function (b) { b.classList.toggle('is-on', b.dataset.go === key); });
-    pins.forEach(function (p) { p.classList.toggle('is-on', p.dataset.pin === key); });
-
-    if (info) {
-      info.querySelector('.mapinfo__t').textContent = PROJE[key].t;
-      info.querySelector('.mapinfo__d').textContent = PROJE[key].d;
-      info.querySelector('.mapinfo__a').setAttribute('href', '#' + key);
-    }
-  }
-
-  items.forEach(function (b) {
-    b.addEventListener('click', function () { selectProject(b.dataset.go); });
-  });
-  pins.forEach(function (p) {
-    p.addEventListener('click', function () { selectProject(p.dataset.pin); });
-    p.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        selectProject(p.dataset.pin);
-      }
-    });
-  });
-  selectProject('burak7');
-
   /* ---------- SSS: aynı anda tek açık ---------- */
   var faqs = Array.prototype.slice.call(document.querySelectorAll('.faq details'));
   faqs.forEach(function (d) {
@@ -225,7 +164,7 @@
   /* ---------- görünürlükte yumuşak giriş ---------- */
   if (!reduce && 'IntersectionObserver' in window) {
     var targets = document.querySelectorAll(
-      '.proj, .feat, .unit, .steps li, .frame, .stats, .mapcard, .maplist, .form, .contact, .faq details'
+      '.proj, .feat, .unit, .steps li, .frame, .stats, .konum__in, .form, .contact, .faq details'
     );
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
