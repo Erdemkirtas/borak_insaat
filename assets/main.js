@@ -1,4 +1,4 @@
-/* BORAK İNŞAAT GROUP — etkileşim */
+/* BURAK İNŞAAT GROUP — etkileşim */
 (function () {
   'use strict';
 
@@ -66,7 +66,7 @@
       b.addEventListener('click', function () {
         var yeni = aktifTema() === 'dark' ? 'light' : 'dark';
         root.setAttribute('data-theme', yeni);
-        try { localStorage.setItem('borak-tema', yeni); } catch (e) { /* gizli mod vb. */ }
+        try { localStorage.setItem('burak-tema', yeni); } catch (e) { /* gizli mod vb. */ }
         temaEtiketi();
       });
     });
@@ -97,16 +97,16 @@
 
   /* ---------- harita: proje seçimi ---------- */
   var PROJE = {
-    borak7: {
-      t: 'Borak 7',
+    burak7: {
+      t: 'Burak 7',
       d: 'Estetik mimarisi ve fonksiyonel planlarıyla modern yaşamın yeni adresi. Gazimağusa merkezde.'
     },
-    borak6: {
-      t: 'Borak 6',
+    burak6: {
+      t: 'Burak 6',
       d: 'Çanakkale bölgesinde, göl manzarasına açılan geniş balkonlu daireler.'
     },
-    borak5: {
-      t: 'Borak 5',
+    burak5: {
+      t: 'Burak 5',
       d: '2+1, 3+1 ve penthouse seçenekleriyle satışları devam eden projemiz.'
     }
   };
@@ -154,7 +154,7 @@
       }
     });
   });
-  selectProject('borak7');
+  selectProject('burak7');
 
   /* ---------- SSS: aynı anda tek açık ---------- */
   var faqs = Array.prototype.slice.call(document.querySelectorAll('.faq details'));
@@ -204,7 +204,7 @@
       }
 
       var satir = [
-        'Merhaba Borak İnşaat Group,',
+        'Merhaba Burak İnşaat Group,',
         '',
         'Ad Soyad: ' + ad.value.trim(),
         'Telefon: ' + tel.value.trim(),

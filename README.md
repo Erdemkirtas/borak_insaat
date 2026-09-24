@@ -1,4 +1,4 @@
-# Borak İnşaat Group — web sitesi
+# Burak İnşaat Group — web sitesi
 
 Tek sayfalık statik site. Derleme adımı, bağımlılık, `node_modules` yok.
 
@@ -8,7 +8,9 @@ borak-insaat/
 ├── assets/
 │   ├── style.css
 │   ├── main.js
-│   ├── borak-logo.svg      favicon
+│   ├── logo-mark.png       logo (açık zemin için)
+│   ├── logo-mark-light.png logo (koyu zemin için)
+│   ├── favicon.png
 │   └── img/                fotoğraflar (temsili)
 ├── 404.html                bulunamayan sayfa
 ├── vercel.json             temiz URL + başlıklar
@@ -19,7 +21,7 @@ borak-insaat/
 
 ## Tasarım
 
-Referans: akolglobal.com. Düzen ve form dili ondan, renk Borak'ın kendi logosundan.
+Referans: akolglobal.com. Düzen ve form dili ondan, renk Burak'ın kendi logosundan.
 
 - **Renk**: beyaz / `#F6F6F4` zemin, `#0B0B0D` koyu bantlar, marka altını
   `#8C6714` (beyaz üstünde yazı) ve `#C9A24A` (dolgu). Tümü `assets/style.css`
@@ -30,11 +32,25 @@ Referans: akolglobal.com. Düzen ve form dili ondan, renk Borak'ın kendi logosu
   anahtarı yok. Mobilde `main.js` içindeki `fitMap()` haritayı Gazimağusa
   bölgesine kırpar ki yazılar okunur kalsın.
 
+## Logo
+
+`assets/logo-mark*.png` firmanın gönderdiği logodan üretildi: krem zemin
+saydamlaştırıldı, marka (vinç + B + binalar) yazıdan ayrıldı.
+
+- `logo-mark.png` — siyah+altın, **açık zeminde** kullanılır
+- `logo-mark-light.png` — siyahlar kreme çevrildi, **koyu zeminde** (hero, footer)
+- `logo-wordmark*.png` — "BURAK İNŞAAT" yazısı (paylaşım kartında kullanılıyor)
+- `favicon.png` — tarayıcı sekmesi
+
+Hangi sürümün görüneceğini CSS `--logo-ink` / `--logo-fff` token'ları belirler.
+**Vektör (SVG/AI) dosyası firmadan istenmeli**; PNG büyük ekranda bir yerde
+bulanıklaşabilir.
+
 ## Açık / koyu tema
 
 - Varsayılan olarak ziyaretçinin cihaz teması kullanılır (`prefers-color-scheme`).
 - Header'daki güneş/ay düğmesi temayı değiştirir. Seçim `localStorage`
-  (`borak-tema`) içinde saklanır. `<head>`'deki tek satırlık betik onu ilk
+  (`burak-tema`) içinde saklanır. `<head>`'deki tek satırlık betik onu ilk
   boyamadan önce uygular, sayfa açılırken beyaz parlama olmaz.
 - Tüm renkler `:root` token'larında. Koyu değerler iki blokta tekrar ediyor
   (sistem teması için `@media` + düğme için `[data-theme="dark"]`).
@@ -45,16 +61,16 @@ Referans: akolglobal.com. Düzen ve form dili ondan, renk Borak'ın kendi logosu
 ## Fotoğraflar — TEMSİLİ
 
 `assets/img/` içindeki 8 fotoğraf **Unsplash**'tan alındı (Unsplash Lisansı:
-ticari kullanım serbest, atıf zorunlu değil). Hiçbiri Borak'ın binası değil.
+ticari kullanım serbest, atıf zorunlu değil). Hiçbiri Burak'ın binası değil.
 Bu yüzden her birinin üstünde "Temsili görsel" notu, footer'da da
 "Görseller temsilidir." yazıyor.
 
 | Dosya | Kullanıldığı yer | Kaynak |
 |---|---|---|
 | `hero.jpg` | Açılış | images.unsplash.com/photo-1600596542815-ffad4c1539a9 |
-| `borak7.jpg` | Borak 7 | images.unsplash.com/photo-1551038247-3d9af20df552 |
-| `borak6.jpg` | Borak 6 | images.unsplash.com/photo-1613490493576-7fde63acd811 |
-| `borak5.jpg` | Borak 5 | images.unsplash.com/photo-1574362848149-11496d93a7c7 |
+| `burak7.jpg` | Burak 7 | images.unsplash.com/photo-1551038247-3d9af20df552 |
+| `burak6.jpg` | Burak 6 | images.unsplash.com/photo-1613490493576-7fde63acd811 |
+| `burak5.jpg` | Burak 5 | images.unsplash.com/photo-1574362848149-11496d93a7c7 |
 | `kurumsal.jpg` | Kurumsal | images.unsplash.com/photo-1545324418-cc1a3fa10c00 |
 | `daire-2-1.jpg` | 2+1 | images.unsplash.com/photo-1600210492486-724fe5c67fb0 |
 | `daire-3-1.jpg` | 3+1 | images.unsplash.com/photo-1600607687939-ce8a6c25118c |
@@ -71,7 +87,7 @@ not kalabilir). Öneri: dış cephe ~1600px, hero ~2200px geniş, JPEG kalite 75
   çıkan önizleme kartı. **Fotoğraf içermez**, yalnız marka öğelerinden üretilir;
   site görselleri değişse de geçerli kalır.
 - `index.html` içindeki `og:image` yolu görecelidir. **Alan adı belli olunca**
-  tam adrese çevirin (ör. `https://borakinsaat.com/assets/img/og.jpg`);
+  tam adrese çevirin (ör. `https://burakinsaat.com/assets/img/og.jpg`);
   bazı uygulamalar göreceli yolu çözemez.
 - Sayfada `application/ld+json` ile işletme bilgisi var (ad, telefon, Gazimağusa
   konumu, koordinat, Instagram). Google'ın işletmeyi tanıması için. İçinde
@@ -85,7 +101,7 @@ Backend yok. Form bilgileri hazır bir WhatsApp mesajına çevirip
 ## Güncelleme yaparken
 
 CSS/JS değiştirince `index.html` içindeki `?v=...` sürüm etiketini artırın
-(`style.css?v=20260922g`, `main.js?v=20260922g`). Yoksa ziyaretçiler eski
+(`style.css?v=20260924a`, `main.js?v=20260924a`). Yoksa ziyaretçiler eski
 dosyayı önbellekten görebilir.
 
 ## Vercel
@@ -103,7 +119,7 @@ npx vercel --prod
 
 ## Gerçek verilerle doldurulmuş kısımlar
 
-Instagram hesabından (@borakinsaatcyprus) doğrulanan bilgiler: Borak 5 / 6 / 7,
+Instagram hesabından (@borakinsaatcyprus) doğrulanan bilgiler: Burak 5 / 6 / 7,
 2+1 · 3+1 · penthouse, altı özellik (modern mimari, konforlu yaşam, güvenli yapı,
 aile dostu, merkezî konum, otopark), telefon `0533 851 38 99`, konum
 `35.139013, 33.917244` (Gazimağusa).
@@ -112,7 +128,6 @@ aile dostu, merkezî konum, otopark), telefon `0533 851 38 99`, konum
 
 ## Firmadan istenecekler
 
-- [ ] Logo dosyası (SVG/PNG). Şu an logo vektör olarak yeniden çizildi.
 - [ ] Proje render ve şantiye fotoğrafları (temsili görsellerin yerine)
 - [ ] Gerçek kat planları ve metrekareler
 - [ ] Kuruluş yılı, teslim edilen konut sayısı

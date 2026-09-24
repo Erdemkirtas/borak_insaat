@@ -1,5 +1,5 @@
 /* =========================================================
-   BORAK İNŞAAT GROUP
+   BURAK İNŞAAT GROUP
    Zemin: beyaz / #F6F6F4 · Vurgu: marka altını · Koyu bant: #0B0B0D
    Tipografi: Outfit (display) · Plus Jakarta Sans (metin) · IBM Plex Mono (indeks)
    ========================================================= */
@@ -64,6 +64,7 @@
   --tick-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238C6714' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
   --sel-img:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238C6714' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   --ay:block; --gunes:none;   /* tema düğmesindeki ikon */
+  --logo-ink:block; --logo-fff:none;   /* açık zeminde koyu logo */
 }
 
 /* ---------- koyu tema ----------
@@ -86,6 +87,7 @@
     --tick-img:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E0B45A' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
     --sel-img:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E0B45A' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
     --ay:none; --gunes:block;
+  --logo-ink:none; --logo-fff:block;
     --sh-s:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -14px rgba(0,0,0,.7);
     --sh-m:0 2px 6px rgba(0,0,0,.4), 0 22px 50px -22px rgba(0,0,0,.8);
     --sh-l:0 4px 12px rgba(0,0,0,.45), 0 44px 90px -32px rgba(0,0,0,.85);
@@ -108,6 +110,7 @@
   --tick-img:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E0B45A' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
   --sel-img:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E0B45A' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   --ay:none; --gunes:block;
+  --logo-ink:none; --logo-fff:block;
   --sh-s:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -14px rgba(0,0,0,.7);
   --sh-m:0 2px 6px rgba(0,0,0,.4), 0 22px 50px -22px rgba(0,0,0,.8);
   --sh-l:0 4px 12px rgba(0,0,0,.45), 0 44px 90px -32px rgba(0,0,0,.85);
@@ -278,9 +281,12 @@ button{ font:inherit; }
 .logo{ display:flex; align-items:center; gap:12px; text-decoration:none; flex:none; }
 /* Mobil menü header içinde açılır (z 99); logo ve sağ düğmeler üstünde kalsın ki menü kapatılabilsin. */
 .hdr .logo, .hdr__side{ position:relative; z-index:101; }
-.logo__mark{ width:38px; height:38px; flex:none; display:block; }
-.logo__mark .ln{ fill:none; stroke:url(#lgGold); stroke-width:7; stroke-linejoin:miter; }
-.logo__mark .fl{ fill:url(#lgGold); }
+.logo__mark{ flex:none; display:block; height:42px; }
+.logo__img{ height:42px; width:auto; display:none; }
+/* Koyu zemin (hero üstü, footer) açık renkli sürümü; açık zemin koyu sürümü ister. */
+.logo__img--fff{ display:block; }
+.hdr.is-stuck .logo__img--ink, body.nav-open .logo__img--ink{ display:var(--logo-ink); }
+.hdr.is-stuck .logo__img--fff, body.nav-open .logo__img--fff{ display:var(--logo-fff); }
 .logo__txt{ display:flex; flex-direction:column; line-height:1; }
 .logo__txt strong{
   font-family:var(--f-disp); font-weight:700; font-size:1.12rem;
@@ -549,7 +555,7 @@ body.nav-open .tema{ color:var(--ink); border-color:var(--line); }
 }
 
 /* =========================================================
-   NEDEN BORAK
+   NEDEN BURAK
    ========================================================= */
 .feats{ display:grid; grid-template-columns:1fr; gap:14px; }
 .feat{
